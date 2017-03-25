@@ -1,0 +1,17 @@
+[advisory]
+package = "rust-openssl"
+patched_versions = [">= 1.0.2"]
+dwf = []
+date = "2016-10-14"
+url = "https://github.com/sfackler/rust-openssl/pull/469"
+title = "SSL/TLS MitM vulnerability due to lack of hostname verification"
+description = """
+All versions of rust-openssl prior to 1.0.2 lacked support for verifying
+hostnames against the SubjectAlternativeNames included in X.509 certificates.
+
+This allows an attacker to perform man-in-the-middle attacks by presenting any
+certificate issued by any trusted CA, regardless of what hostnames are included
+in the certificate itself.
+
+The problem was addressed by adding support for hostname verification.
+"""
